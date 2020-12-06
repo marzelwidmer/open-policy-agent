@@ -75,11 +75,11 @@ curl -X PUT http://localhost:8181/v1/policies/keepcalm --data-binary @acl/keepca
 Let’s ask OPA whether the user alice can invoke a write operation on our application:
 ### Httpie
 ```bash
-http POSt :8181/v1/data/keepcalm/policy/allow <<<'{ "input": { "user": "alice", "access": "write" } }'
+http POST :8181/v1/data/keepcalm/policy/allow <<<'{ "input": { "user": "alice", "access": "write" } }'
 
 or 
 
-http POSt :8181/v1/data/keepcalm/policy/allow @acl/input.json
+http POST :8181/v1/data/keepcalm/policy/allow @acl/input.json
 ```
 
 ### Curl
@@ -98,7 +98,38 @@ The result should be `true`
 }
 ```
 
+## Ask OPA Policy
+Ask `OPA` policy `whocan` read.
+```bash
+http POST :8181/v1/data/keepcalm/policy/whocan <<<'{ "input": { "access": "read" } }'
 
+HTTP/1.1 200 OK
+Content-Length: 26
+Content-Type: application/json
+Date: Sun, 06 Dec 2020 15:11:23 GMT
+
+{
+    "result": [
+        "alice",
+        "bob"
+    ]
+}
+```
+Ask `OPA` policy `whocan` write.
+```bash 
+http POST :8181/v1/data/keepcalm/policy/whocan <<<'{ "input": { "access": "write" } }'
+HTTP/1.1 200 OK
+Content-Length: 20
+Content-Type: application/json
+Date: Sun, 06 Dec 2020 15:14:01 GMT
+
+{
+    "result": [
+        "alice"
+    ]
+}
+
+```
 
 
 

@@ -1,0 +1,6 @@
+{
+  "input": {
+    "user": "alice",
+    "access": "write"
+  }
+}

@@ -116,8 +116,10 @@ Date: Sun, 06 Dec 2020 15:11:23 GMT
 }
 ```
 Ask `OPA` policy `whocan` write.
-```bash 
+
+```bash
 http POST :8181/v1/data/keepcalm/policy/whocan <<<'{ "input": { "access": "write" } }'
+
 HTTP/1.1 200 OK
 Content-Length: 20
 Content-Type: application/json
@@ -128,14 +130,32 @@ Date: Sun, 06 Dec 2020 15:14:01 GMT
         "alice"
     ]
 }
+```
+ 
 
+
+# Minikube
+## Install with skaffold
+```bash
+skaffold run
+```
+## Search POD
+```bash
+k get po -l 'appGroup in (opa)' -n default
+
+NAME                           READY   STATUS    RESTARTS   AGE
+opa-service-79fd6b49dc-dx5q8   1/1     Running   0          2m46s
+```
+## Forward Port 
+```bash
+k port-forward po/opa-service-79fd6b49dc-dx5q8 8181:8181
+Forwarding from 127.0.0.1:8181 -> 8181
+Forwarding from [::1]:8181 -> 8181
 ```
 
 
-
-
-
-
-
-
+## Install with skaffold on Openshift
+```bash
+skaffold run -p openshift
+```
 

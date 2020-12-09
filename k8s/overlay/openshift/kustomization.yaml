@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  appGroup: opa
+
+namespace: myhelsana-dev-dmz2
+
+resources:
+  - ../../base
+
+images:
+  - name: c3smonkey/template
+    newName: docker-registry.default.svc:5000/myhelsana-build-dz/opa
+    newTag: 0.25.2-rootless

@@ -1,8 +1,5 @@
 package ch.keepcalm.demo
 
-import ch.keepcalm.bar.BarService
-import ch.keepcalm.foo.FooService
-import ch.keepcalm.hello.HelloService
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.support.beans
@@ -17,13 +14,7 @@ fun main(args: Array<String>) {
 			beans {
 				bean {
 					ApplicationRunner {
-
-						ref<FooService>().sayFoo()
-						ref<HelloService>().sayHello()
-
 						println(":::: ApplicationRunner :::: ")
-
-						ref<BarService>().sayBye()
 					}
 				}
 			}

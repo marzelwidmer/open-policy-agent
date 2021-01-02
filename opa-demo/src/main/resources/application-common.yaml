@@ -13,9 +13,3 @@ management:
   info:
     git:
       mode: full
-
-security:
-  jwt:
-    issuer: Keepcalm Auth
-    audience: Keepcalm
-    secret: willbereplacedinalaterversiononceRSAcanbeused

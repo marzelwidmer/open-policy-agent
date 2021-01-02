@@ -19,14 +19,16 @@ configurations {
     }
 }
 repositories {
+    mavenLocal()
     mavenCentral()
     maven {
         url = uri("http://nexusvm.cloudapp.net/artifactory/maven-public")
+        url = uri("https://maven.pkg.github.com/marzelwidmer/kboot-starter")
     }
 }
 dependencies {
     //  Keepcalm Starter
-    implementation("ch.keepcalm.security", "kboot-jwt-spring-boot-starter", "0.0.1-20201220.205452-1")
+    implementation("ch.keepcalm.security", "kboot-starter-security", "0.0.0")
 
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")

@@ -22,7 +22,6 @@ Note that OPA don’t come with any pre-defined policies.
 OPA is a policy engine that is able to interpret a policy, however, in order to make use of it you have to create a policy yourself and provide it to OPA.
 
 
-
 # Install with brew
 ```
 brew install opa
@@ -35,12 +34,10 @@ opa test .
 ```
 Output as `JSON`
 ``` 
- opa test --format=json -v .
+opa test --format=json -v .
  ```
 
 See also https://www.openpolicyagent.org/docs/latest/policy-testing/ 
-
-
 
 
 # OPA Server

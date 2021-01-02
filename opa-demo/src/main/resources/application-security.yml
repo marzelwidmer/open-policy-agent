@@ -1,0 +1,15 @@
+keepcalm:
+  security:
+    access-decision-voter:
+      voters: OPA
+    jwt:
+      issuer: Keepcalm Auth
+      audience: Keepcalm
+      secret: s3cretP@ssw0rd
+    endpoints:
+      admin:
+        - "/api/salary/**"
+      user:
+        - "/api/document/**"
+      unsecured:
+        - "/unsecure"

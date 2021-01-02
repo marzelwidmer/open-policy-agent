@@ -1,7 +1,8 @@
 spring:
   profiles:
     active: default
-    include: common
+    include: common,security
+
   application:
     name:  opa-demo
 
@@ -20,7 +21,14 @@ spring:
     allow-bean-definition-overriding: true
 
 
-logging.level:
+logging:
+  level:
+    ch.keepcalm.security: TRACE
   org.hibernate:
     SQL: DEBUG
     type.descriptor.sql.BasicBinder: TRACE
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd E HH:mm:ss.SSS}){blue} - %clr(${spring.application.name:-}){green} - %clr(%-40.40logger{0}){magenta} - %clr(%m){green}%n"
+
+
+

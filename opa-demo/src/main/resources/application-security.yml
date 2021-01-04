@@ -1,7 +1,7 @@
 keepcalm:
   security:
-    access-decision-voter:
-      voters: OPA
+#    access-decision-voter:
+#      voters: OPA
     jwt:
       issuer: Keepcalm Auth
       audience: Keepcalm

@@ -28,7 +28,7 @@ repositories {
 }
 dependencies {
     //  Keepcalm Starter
-    implementation("ch.keepcalm.security", "kboot-starter-security", "0.0.0")
+    implementation("ch.keepcalm.security", "kboot-starter-security", "0.2.0")
 
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")

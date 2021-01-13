@@ -1,7 +1,8 @@
 keepcalm:
   security:
-#    access-decision-voter:
-#      voters: OPA
+    access-decision-voter:
+      voters: OPA
+      url: http://localhost:8181/v1/data/http/authz/allow
     jwt:
       issuer: Keepcalm Auth
       audience: Keepcalm
@@ -13,3 +14,10 @@ keepcalm:
         - "/api/document/**"
       unsecured:
         - "/unsecure"
+
+logging:
+  level:
+    ch.keepcalm.security: TRACE
+  pattern:
+    console: "%clr(%-40.40logger{0}){magenta} - %clr(%m){green}%n"
+

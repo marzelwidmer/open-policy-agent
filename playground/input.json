@@ -1,0 +1,170 @@
+{
+  "_embedded": {
+    "vertragsPartner": [
+      {
+        "partnerId": "M10703176",
+        "praemienTotal": {
+          "betrag": 381.15,
+          "waehrung": "CHF"
+        },
+        "vertraege": [
+          {
+            "partnerId": "M10703176",
+            "vertragsNummer": "10703176.01",
+            "praemienTotal": {
+              "betrag": 381.15,
+              "waehrung": "CHF"
+            },
+            "vertragsProdukte": [
+              {
+                "produkteId": "PRO_H0AUSL_HEL_IG",
+                "praemienTotal": {
+                  "betrag": 300.00,
+                  "waehrung": "CHF"
+                },
+                "laufzeitBegin": "2020-01-01",
+                "mindLaufzeitEnde": "2020-12-31",
+                "gesetzlicheGrundlage": "KVG",
+                "unfallEinschluss": "COD_eingeschlossen_HEL",
+                "franchise": "COD_Franchise_KVG-O_Erwachsener_300_HEL",
+                "metadaten": {
+                  "produkteId": "PRO_H0AUSL_HEL_IG",
+                  "produkteDetailsUrl": "https://www.helsana.ch/{language}/1372783594526",
+                  "farbe": "blue",
+                  "sortierReihenfolge": 170,
+                  "id": "PRO_H0AUSL_HEL_IG",
+                  "_links": {
+                    "self": {
+                      "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/produkte/PRO_H0AUSL_HEL_IG"
+                    },
+                    "produkte": {
+                      "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/produkte"
+                    },
+                    "details": {
+                      "href": "https://www.helsana.ch/{language}/1372783594526",
+                      "templated": true
+                    }
+                  }
+                }
+              },
+              {
+                "produkteId": "PRO_Z1TOP__HEL_IG",
+                "praemienTotal": {
+                  "betrag": 37.60,
+                  "waehrung": "CHF"
+                },
+                "laufzeitBegin": "2020-01-01",
+                "mindLaufzeitEnde": "2020-12-31",
+                "gesetzlicheGrundlage": "VVG",
+                "unfallEinschluss": "COD_eingeschlossen_HEL",
+                "metadaten": {
+                  "produkteId": "PRO_Z1TOP__HEL_IG",
+                  "produkteDetailsUrl": "https://www.helsana.ch/{language}/1371625854810",
+                  "farbe": "green",
+                  "sortierReihenfolge": 1010,
+                  "id": "PRO_Z1TOP__HEL_IG",
+                  "_links": {
+                    "self": {
+                      "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/produkte/PRO_Z1TOP__HEL_IG"
+                    },
+                    "produkte": {
+                      "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/produkte"
+                    },
+                    "details": {
+                      "href": "https://www.helsana.ch/{language}/1371625854810",
+                      "templated": true
+                    }
+                  }
+                }
+              },
+              {
+                "produkteId": "PRO_Z1SANA_HEL_IG",
+                "praemienTotal": {
+                  "betrag": 27.25,
+                  "waehrung": "CHF"
+                },
+                "laufzeitBegin": "2020-01-01",
+                "mindLaufzeitEnde": "2020-12-31",
+                "gesetzlicheGrundlage": "VVG",
+                "unfallEinschluss": "COD_eingeschlossen_HEL",
+                "metadaten": {
+                  "produkteId": "PRO_Z1SANA_HEL_IG",
+                  "produkteDetailsUrl": "https://www.helsana.ch/{language}/1371625854898",
+                  "farbe": "green",
+                  "sortierReihenfolge": 1030,
+                  "id": "PRO_Z1SANA_HEL_IG",
+                  "_links": {
+                    "self": {
+                      "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/produkte/PRO_Z1SANA_HEL_IG"
+                    },
+                    "produkte": {
+                      "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/produkte"
+                    },
+                    "details": {
+                      "href": "https://www.helsana.ch/{language}/1371625854898",
+                      "templated": true
+                    }
+                  }
+                }
+              },
+              {
+                "produkteId": "PRO_Z2ECO__HEL_IG",
+                "praemienTotal": {
+                  "betrag": 16.30,
+                  "waehrung": "CHF"
+                },
+                "laufzeitBegin": "2020-01-01",
+                "mindLaufzeitEnde": "2020-12-31",
+                "gesetzlicheGrundlage": "VVG",
+                "unfallEinschluss": "COD_eingeschlossen_HEL",
+                "metadaten": {
+                  "produkteId": "PRO_Z2ECO__HEL_IG",
+                  "produkteDetailsUrl": "https://www.helsana.ch/{language}/1371625855394",
+                  "farbe": "orange",
+                  "sortierReihenfolge": 2020,
+                  "id": "PRO_Z2ECO__HEL_IG",
+                  "_links": {
+                    "self": {
+                      "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/produkte/PRO_Z2ECO__HEL_IG"
+                    },
+                    "produkte": {
+                      "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/produkte"
+                    },
+                    "details": {
+                      "href": "https://www.helsana.ch/{language}/1371625855394",
+                      "templated": true
+                    }
+                  }
+                }
+              }
+            ],
+            "_links": {
+              "produkt-metadaten": {
+                "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/produkte/{produkteId}",
+                "templated": true
+              }
+            }
+          }
+        ],
+        "akutberatung": {
+          "telefonnummer": "0800 100 008",
+          "telefonnummerE164": "+41800100008"
+        },
+        "_links": {
+          "self": {
+            "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/vertragspartner/M10703176"
+          }
+        }
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/vertragspartner?partnerIds=M10703176"
+    },
+    "produkt-metadaten": {
+      "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/produkte/{produkteId}",
+      "templated": true
+    }
+  }
+}

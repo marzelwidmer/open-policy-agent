@@ -22,66 +22,136 @@ Note that OPA don’t come with any pre-defined policies.
 OPA is a policy engine that is able to interpret a policy, however, in order to make use of it you have to create a policy yourself and provide it to OPA.
 
 
-# Install with brew
-```
+# Opa Server
+## Install with brew
+```bash
 brew install opa
 ```
 
+Start the `OPA` server with the following command:
+```bash
+opa run --server
+```
+`OPA` service is now up and listening on port `8181`
+
+
+## OPA Server Docker Image
+```bash
+docker run -it -p 8181:8181 openpolicyagent/opa run --server --log-level debug
+```
+
+
+
 # Test 
 For verbose mode `opa test -v  .`
-``` 
+```bash 
 opa test .
 ```
 Output as `JSON`
-``` 
+```bash 
 opa test --format=json -v .
  ```
+See also : [https://www.openpolicyagent.org/docs/latest/policy-testing/](https://www.openpolicyagent.org/docs/latest/policy-testing/ )
 
-See also https://www.openpolicyagent.org/docs/latest/policy-testing/ 
+ 
 
+# Sample Access Control List
+Based on : [https://www.redhat.com/en/blog/open-policy-agent-part-i-—-introduction](https://www.redhat.com/en/blog/open-policy-agent-part-i-—-introduction)
 
-# OPA Server
-Start the `OPA` server with the following command:
-``` 
-opa run --server
+## Data
+Access control list specifies which users have access to the application as well as what operations they are allowed to invoke. 
+For the purposes of this tutorial, I came up with a simple `ACL` definition:
+```json
+{
+  "alice": [
+    "read",
+    "write"
+  ],
+  "bob": [
+    "read"
+  ]
+}
 ```
 
-`OPA` service is now up and listening on port `8181`
-
-`Upload` the `ACL` file `keepcalm-acl.json` into `OPA` using the following curl command:
+`Upload` the `data` file [data](acl/data.json)  into `OPA` using the following `httpie/curl` command:
 ### Httpie
 ```bash
-http PUT :8181/v1/data/keepcalm/acl @acl/keepcalm-acl.json
+http PUT :8181/v1/data/http/authz/acl @acl/data.json
 ```
 ### Curl
-```bash 
-curl -X PUT http://localhost:8181/v1/data/keepcalm/acl --data-binary @acl/keepcalm-acl.json
+```bash
+curl -X PUT http://localhost:8181/v1/data/http/authz/acl --data-binary @acl/data.json
 ````
 
-`Upload` the `policy` file `keepcalm-policy.rego` into `OPA` by issuing:
+
+## Input
+The query `input`. On each access to the application, we are going to ask `OPA` whether the given access is authorized or not. 
+To answer that question, `OPA` needs to know the name of the user that is trying to access the application, and the operation that the user is trying to invoke. 
+
+Here is a sample query input that conveys the two `query` arguments to `OPA` :
+```json
+{
+  "input": {
+    "user": "alice",
+    "operation": "write"
+  }
+}
+```
+
+## Rego Policy
+Create a policy that implements the `ACL` semantics with two rules `allow` and `whocan`: 
+
+The rule `allow` checks whether the user is allowed access according to the `ACL`.
+First look up the users' record in `ACL` and check the operation the user is trying to invoke is included on user’s permission list.
+Only if there is an `ACL` record for the given user, and the user was granted given access permission, the `allow` rule results to true.
+
+The rule `whocan` takes the operation as the input argument.
+For the given operation, `whocan` rule returns a list of all users that are allowed to invoke the given operation.
+
+[policy.rego](acl/policy.rego)
+
+```rego
+package http.authz.policy
+
+import data.http.authz.acl
+import input
+
+default allow = false
+
+allow {
+        access = acl[input.user]
+        access[_] == input.access
+}
+
+whocan[user] {
+        access = acl[user]
+        access[_] == input.access
+}
+```
+
+`Upload` the `policy` file [policy.rego](acl/policy.rego) into `OPA` by issuing:
 ### Httpie
 ```bash
-http PUT :8181/v1/policies/keepcalm @acl/keepcalm-policy.rego
+http PUT :8181/v1/policies/http/authz @acl/policy.rego
 ```
 ### Curl
 ```bash
-curl -X PUT http://localhost:8181/v1/policies/keepcalm --data-binary @acl/keepcalm-policy.rego
+curl -X PUT http://localhost:8181/v1/policies/http/authz --data-binary @acl/policy.rego
 
 ```
 
-Let’s ask OPA whether the user alice can invoke a write operation on our application:
+Let’s ask `OPA` whether the `user alice` can invoke a `write operation` on our application:
 ### Httpie
 ```bash
-http POST :8181/v1/data/keepcalm/policy/allow <<<'{ "input": { "user": "alice", "access": "write" } }'
-
-or 
-
-http POST :8181/v1/data/keepcalm/policy/allow @acl/input.json
+http POST :8181/v1/data/http/authz/policy/allow <<<'{ "input": { "user": "alice", "access": "write" } }'
+````
+or with the [input.json](acl/input.json)
+```bash
+http POST :8181/v1/data/http/authz/policy/allow @acl/input.json
 ```
-
 ### Curl
 ```bash
-curl -X POST http://localhost:8181/v1/data/keepcalm/policy/allow \
+curl -X POST http://localhost:8181/v1/data/http/authz/policy/allow \
         --data-binary '{ "input": { "user": "alice", "access": "write" } }' \
         | jq
 ```
@@ -96,9 +166,10 @@ The result should be `true`
 ```
 
 ## Ask OPA Policy
+### Whocan red
 Ask `OPA` policy `whocan` read.
 ```bash
-http POST :8181/v1/data/keepcalm/policy/whocan <<<'{ "input": { "access": "read" } }'
+http POST :8181/v1/data/http/authz/policy/whocan <<<'{ "input": { "access": "read" } }'
 
 HTTP/1.1 200 OK
 Content-Length: 26
@@ -112,10 +183,10 @@ Date: Sun, 06 Dec 2020 15:11:23 GMT
     ]
 }
 ```
+### Whocan write
 Ask `OPA` policy `whocan` write.
-
 ```bash
-http POST :8181/v1/data/keepcalm/policy/whocan <<<'{ "input": { "access": "write" } }'
+http POST :8181/v1/data/http/authz/policy/whocan <<<'{ "input": { "access": "write" } }'
 
 HTTP/1.1 200 OK
 Content-Length: 20
@@ -128,7 +199,15 @@ Date: Sun, 06 Dec 2020 15:14:01 GMT
     ]
 }
 ```
- 
+
+
+
+
+
+
+
+
+
 
 
 # Minikube

@@ -1,10 +1,6 @@
 {
   "input": {
-    "user": "john.doe@keepcalm.ch",
-    "access": "read",
-    "authorities" : [ {
-      "authority" : "keepcalm.user"
-    } ]
+    "user": "alice",
+    "access": "write"
   }
 }
-

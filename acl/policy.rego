@@ -1,6 +1,6 @@
-package keepcalm.policy
+package http.authz.policy
 
-import data.keepcalm.acl
+import data.http.authz.acl
 import input
 
 default allow = false

@@ -1,4 +1,4 @@
-package http.authz.policy
+package authz.acl
 
 import data.http.authz.acl
 import input

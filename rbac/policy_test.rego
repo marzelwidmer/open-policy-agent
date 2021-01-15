@@ -1,4 +1,4 @@
-package keepcalm
+package authz.rbac
 
 test_allow_is_false_by_default{
 	 not allow

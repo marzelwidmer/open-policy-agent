@@ -1,4 +1,4 @@
-package keepcalm
+package authz.rbac
 
 default allow = false
 

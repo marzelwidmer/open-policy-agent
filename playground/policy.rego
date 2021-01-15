@@ -1,5 +1,8 @@
 package playground
 
+
+default allow =  false
+
 default vertrag = false
 
 vertrag {

@@ -35,10 +35,10 @@
                   "id": "PRO_H0AUSL_HEL_IG",
                   "_links": {
                     "self": {
-                      "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/produkte/PRO_H0AUSL_HEL_IG"
+                      "href": "https://localhost/partner/partner//vertrag/api/produkte/PRO_H0AUSL_HEL_IG"
                     },
                     "produkte": {
-                      "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/produkte"
+                      "href": "https://localhost/partner/partner//vertrag/api/produkte"
                     },
                     "details": {
                       "href": "https://www.helsana.ch/{language}/1372783594526",
@@ -65,10 +65,10 @@
                   "id": "PRO_Z1TOP__HEL_IG",
                   "_links": {
                     "self": {
-                      "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/produkte/PRO_Z1TOP__HEL_IG"
+                      "href": "https://localhost/partner/partner//vertrag/api/produkte/PRO_Z1TOP__HEL_IG"
                     },
                     "produkte": {
-                      "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/produkte"
+                      "href": "https://localhost/partner/partner//vertrag/api/produkte"
                     },
                     "details": {
                       "href": "https://www.helsana.ch/{language}/1371625854810",
@@ -95,10 +95,10 @@
                   "id": "PRO_Z1SANA_HEL_IG",
                   "_links": {
                     "self": {
-                      "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/produkte/PRO_Z1SANA_HEL_IG"
+                      "href": "https://localhost/partner/partner//vertrag/api/produkte/PRO_Z1SANA_HEL_IG"
                     },
                     "produkte": {
-                      "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/produkte"
+                      "href": "https://localhost/partner/partner//vertrag/api/produkte"
                     },
                     "details": {
                       "href": "https://www.helsana.ch/{language}/1371625854898",
@@ -125,10 +125,10 @@
                   "id": "PRO_Z2ECO__HEL_IG",
                   "_links": {
                     "self": {
-                      "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/produkte/PRO_Z2ECO__HEL_IG"
+                      "href": "https://localhost/partner/partner//vertrag/api/produkte/PRO_Z2ECO__HEL_IG"
                     },
                     "produkte": {
-                      "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/produkte"
+                      "href": "https://localhost/partner/partner//vertrag/api/produkte"
                     },
                     "details": {
                       "href": "https://www.helsana.ch/{language}/1371625855394",
@@ -140,7 +140,7 @@
             ],
             "_links": {
               "produkt-metadaten": {
-                "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/produkte/{produkteId}",
+                "href": "https://localhost/partner/partner//vertrag/api/produkte/{produkteId}",
                 "templated": true
               }
             }
@@ -152,7 +152,7 @@
         },
         "_links": {
           "self": {
-            "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/vertragspartner/M10703176"
+            "href": "https://localhost/partner/partner//vertrag/api/vertragspartner/M10703176"
           }
         }
       }
@@ -160,10 +160,10 @@
   },
   "_links": {
     "self": {
-      "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/vertragspartner?partnerIds=M10703176"
+      "href": "https://localhost/partner/partner//vertrag/api/vertragspartner?partnerIds=M10703176"
     },
     "produkt-metadaten": {
-      "href": "https://portal.helsana-preprod02.ch/myhelsana/services/vertrag/api/produkte/{produkteId}",
+      "href": "https://localhost/partner/partner//vertrag/api/produkte/{produkteId}",
       "templated": true
     }
   }

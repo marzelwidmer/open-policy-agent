@@ -2,7 +2,7 @@ keepcalm:
   security:
     access-decision-voter:
       voters: OPA
-      url: http://localhost:8181/v1/data/http/authz/allow
+      url: http://localhost/partner/partner/:8181/v1/data/http/authz/allow
     jwt:
       issuer: Keepcalm Auth
       audience: Keepcalm
@@ -14,4 +14,3 @@ keepcalm:
         - "/api/document/**"
       unsecured:
         - "/unsecure"
-

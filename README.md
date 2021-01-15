@@ -1,24 +1,24 @@
 # Open Policy Agent (OPA)
-OPA Documentation you can find here: https://www.openpolicyagent.org/docs/latest/ 
+OPA Documentation you can find here: https://www.openpolicyagent.org/docs/latest/
 
 
 In OPA, there are three inputs into the decision-making process: (source: https://www.redhat.com/en/blog/open-policy-agent-part-i-—-introduction)
 ## Data
 `Data` is a set of facts about the outside world that `OPA` refers to while making a decision.
-For example, when controlling access based on the access control list, the data would be a list of users along with the permissions they were granted. 
-Another example: when deciding where to place the next pod on the Kubernetes cluster, the data would be a list of Kubernetes nodes and their currently available capacity. 
-Note that data may change over time and OPA caches its latest state in memory. 
+For example, when controlling access based on the access control list, the data would be a list of users along with the permissions they were granted.
+Another example: when deciding where to place the next pod on the Kubernetes cluster, the data would be a list of Kubernetes nodes and their currently available capacity.
+Note that data may change over time and OPA caches its latest state in memory.
 The data must be provided to OPA in the JSON format.
 
-## Query 
-`Query` Input triggers the decision computation. It specifies the question that OPA should decide upon. 
-The query input must be formatted as JSON. For instance, for the question `“Is user Alice allowed to invoke GET /protected/resource?”` 
+## Query
+`Query` Input triggers the decision computation. It specifies the question that OPA should decide upon.
+The query input must be formatted as JSON. For instance, for the question `“Is user Alice allowed to invoke GET /protected/resource?”`
 the query input would contain parameters: `Alice`, `GET`, and `/protected/resource`
 
-## Policy 
-`Policy` specifies the computational logic that for the given data and query input yields a policy decision aka query result. 
-The computational logic is described as a set of policy rules in the `OPA’s custom policy language called Rego`. 
-Note that OPA don’t come with any pre-defined policies. 
+## Policy
+`Policy` specifies the computational logic that for the given data and query input yields a policy decision aka query result.
+The computational logic is described as a set of policy rules in the `OPA’s custom policy language called Rego`.
+Note that OPA don’t come with any pre-defined policies.
 OPA is a policy engine that is able to interpret a policy, however, in order to make use of it you have to create a policy yourself and provide it to OPA.
 
 
@@ -42,24 +42,24 @@ docker run -it -p 8181:8181 openpolicyagent/opa run --server --log-level debug
 
 
 
-# Test 
+# Test
 For verbose mode `opa test -v  .`
-```bash 
+```bash
 opa test .
 ```
 Output as `JSON`
-```bash 
+```bash
 opa test --format=json -v .
  ```
 See also : [https://www.openpolicyagent.org/docs/latest/policy-testing/](https://www.openpolicyagent.org/docs/latest/policy-testing/ )
 
- 
+
 
 # Sample Access Control List
 Based on : [https://www.redhat.com/en/blog/open-policy-agent-part-i-—-introduction](https://www.redhat.com/en/blog/open-policy-agent-part-i-—-introduction)
 
 ## Data
-Access control list specifies which users have access to the application as well as what operations they are allowed to invoke. 
+Access control list specifies which users have access to the application as well as what operations they are allowed to invoke.
 For the purposes of this tutorial, I came up with a simple `ACL` definition:
 ```json
 {
@@ -80,13 +80,13 @@ http PUT :8181/v1/data/http/authz/acl @acl/data.json
 ```
 ### Curl
 ```bash
-curl -X PUT http://localhost:8181/v1/data/http/authz/acl --data-binary @acl/data.json
+curl -X PUT http://localhost/partner/partner/:8181/v1/data/http/authz/acl --data-binary @acl/data.json
 ````
 
 
 ## Input
-The query `input`. On each access to the application, we are going to ask `OPA` whether the given access is authorized or not. 
-To answer that question, `OPA` needs to know the name of the user that is trying to access the application, and the operation that the user is trying to invoke. 
+The query `input`. On each access to the application, we are going to ask `OPA` whether the given access is authorized or not.
+To answer that question, `OPA` needs to know the name of the user that is trying to access the application, and the operation that the user is trying to invoke.
 
 Here is a sample query input that conveys the two `query` arguments to `OPA` :
 ```json
@@ -99,7 +99,7 @@ Here is a sample query input that conveys the two `query` arguments to `OPA` :
 ```
 
 ## Rego Policy
-Create a policy that implements the `ACL` semantics with two rules `allow` and `whocan`: 
+Create a policy that implements the `ACL` semantics with two rules `allow` and `whocan`:
 
 The rule `allow` checks whether the user is allowed access according to the `ACL`.
 First look up the users' record in `ACL` and check the operation the user is trying to invoke is included on user’s permission list.
@@ -136,7 +136,7 @@ http PUT :8181/v1/policies/http/authz @acl/policy.rego
 ```
 ### Curl
 ```bash
-curl -X PUT http://localhost:8181/v1/policies/http/authz --data-binary @acl/policy.rego
+curl -X PUT http://localhost/partner/partner/:8181/v1/policies/http/authz --data-binary @acl/policy.rego
 
 ```
 
@@ -151,12 +151,12 @@ http POST :8181/v1/data/http/authz/policy/allow @acl/input.json
 ```
 ### Curl
 ```bash
-curl -X POST http://localhost:8181/v1/data/http/authz/policy/allow \
+curl -X POST http://localhost/partner/partner/:8181/v1/data/http/authz/policy/allow \
         --data-binary '{ "input": { "user": "alice", "access": "write" } }' \
         | jq
 ```
 The result should be `true`
-``` 
+```
  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100    66  100    15  100    51  15000  51000 --:--:-- --:--:-- --:--:-- 66000
@@ -222,7 +222,7 @@ k get po -l 'appGroup in (opa)' -n default
 NAME                           READY   STATUS    RESTARTS   AGE
 opa-service-79fd6b49dc-dx5q8   1/1     Running   0          2m46s
 ```
-## Forward Port 
+## Forward Port
 ```bash
 k port-forward po/opa-service-79fd6b49dc-dx5q8 8181:8181
 Forwarding from 127.0.0.1:8181 -> 8181
@@ -234,4 +234,3 @@ Forwarding from [::1]:8181 -> 8181
 ```bash
 skaffold run -p openshift
 ```
-

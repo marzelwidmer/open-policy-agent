@@ -1,0 +1,247 @@
+{
+  "_embedded": {
+    "partners": [
+      {
+        "role": "FAVOR",
+        "partnerId": "M70762000",
+        "partnerNr": "70762000",
+        "vorname": "Bartolomej",
+        "name": "Batigny",
+        "kuerzel": "BB",
+        "zivilstand": "ledig",
+        "geschlecht": "maennlich",
+        "geburtsdatum": "1983-08-01",
+        "adresse": {
+          "adressArt": "Domiziladresse",
+          "hausnummer": "1",
+          "kanton": "Kanton_Nicht_Bekannt",
+          "land": "FR",
+          "ort": "Ort",
+          "plz": "1000",
+          "postfachOhneNr": false,
+          "strasse": "Strasse",
+          "strasseNrReihenfolge": "Unknown",
+          "gemeindenummer": -2147483647
+        },
+        "kontakt": {
+          "telefonMobile": "+41 98 535 58 56"
+        },
+        "personalversichert": false,
+        "korrespondenzsprache": "fr",
+        "age15InCurrentYear": true,
+        "age18InCurrentYear": true,
+        "wohnsitzInDerSchweiz": false,
+        "_links": {
+          "self": {
+            "href": "https://localhost/partner/api/partners/M70762000"
+          },
+          "update-basedata": {
+            "href": "https://localhost/partner/api/partners/M70762000/person"
+          },
+          "display-edit-basedata": {
+            "href": "https://localhost/partner/api/partners/M70762000/person"
+          },
+          "update-address": {
+            "href": "https://localhost/partner/api/partners/M70762000/address"
+          },
+          "display-edit-address": {
+            "href": "https://localhost/partner/api/partners/M70762000/address"
+          },
+          "update-contact": {
+            "href": "https://localhost/partner/api/partners/M70762000/contact"
+          },
+          "display-edit-contact": {
+            "href": "https://localhost/partner/api/partners/M70762000/contact"
+          },
+          "favor": {
+            "href": "https://localhost/partner/api/partners/M70762000/favor"
+          },
+          "all": {
+            "href": "https://localhost/partner/api/partners/M70762000/all"
+          },
+          "partner-details": {
+            "href": "https://localhost/partner/api/partners/M70762000{?fields}",
+            "templated": true
+          }
+        }
+      },
+      {
+        "role": "MEMBER",
+        "partnerId": "M70762001",
+        "partnerNr": "70762001",
+        "vorname": "Aphélie",
+        "name": "Lambecq",
+        "kuerzel": "AL",
+        "zivilstand": "ledig",
+        "geschlecht": "weiblich",
+        "geburtsdatum": "1984-05-01",
+        "adresse": {
+          "adressArt": "Domiziladresse",
+          "hausnummer": "1",
+          "kanton": "Kanton_Nicht_Bekannt",
+          "land": "FR",
+          "ort": "Ort",
+          "plz": "1000",
+          "postfachOhneNr": false,
+          "strasse": "Strasse",
+          "strasseNrReihenfolge": "Unknown",
+          "gemeindenummer": -2147483647
+        },
+        "kontakt": {
+          "telefonMobile": "+41 98 211 56 49",
+          "email": "aphelie.lambecq_20001911467@helsana.org"
+        },
+        "personalversichert": false,
+        "korrespondenzsprache": "fr",
+        "age15InCurrentYear": true,
+        "age18InCurrentYear": true,
+        "wohnsitzInDerSchweiz": false,
+        "_links": {
+          "self": {
+            "href": "https://localhost/partner/api/partners/M70762001"
+          },
+          "update-basedata": {
+            "href": "https://localhost/partner/api/partners/M70762001/person"
+          },
+          "display-edit-basedata": {
+            "href": "https://localhost/partner/api/partners/M70762001/person"
+          },
+          "update-contact": {
+            "href": "https://localhost/partner/api/partners/M70762001/contact"
+          },
+          "display-edit-contact": {
+            "href": "https://localhost/partner/api/partners/M70762001/contact"
+          },
+          "favor": {
+            "href": "https://localhost/partner/api/partners/M70762001/favor"
+          },
+          "all": {
+            "href": "https://localhost/partner/api/partners/M70762001/all"
+          },
+          "partner-details": {
+            "href": "https://localhost/partner/api/partners/M70762001{?fields}",
+            "templated": true
+          }
+        }
+      },
+      {
+        "role": "MEMBER",
+        "partnerId": "M70798065",
+        "partnerNr": "70798065",
+        "vorname": "Ladoslav",
+        "name": "Batigny",
+        "kuerzel": "LB",
+        "zivilstand": "ledig",
+        "geschlecht": "maennlich",
+        "geburtsdatum": "2015-01-01",
+        "adresse": {
+          "adressArt": "Domiziladresse",
+          "hausnummer": "1",
+          "kanton": "Kanton_Nicht_Bekannt",
+          "land": "FR",
+          "ort": "Ort",
+          "plz": "1000",
+          "postfachOhneNr": false,
+          "strasse": "Strasse",
+          "strasseNrReihenfolge": "Unknown",
+          "gemeindenummer": -2147483647
+        },
+        "kontakt": {},
+        "personalversichert": false,
+        "korrespondenzsprache": "fr",
+        "age15InCurrentYear": false,
+        "age18InCurrentYear": false,
+        "wohnsitzInDerSchweiz": false,
+        "_links": {
+          "self": {
+            "href": "https://localhost/partner/api/partners/M70798065"
+          },
+          "update-basedata": {
+            "href": "https://localhost/partner/api/partners/M70798065/person"
+          },
+          "display-edit-basedata": {
+            "href": "https://localhost/partner/api/partners/M70798065/person"
+          },
+          "update-contact": {
+            "href": "https://localhost/partner/api/partners/M70798065/contact"
+          },
+          "display-edit-contact": {
+            "href": "https://localhost/partner/api/partners/M70798065/contact"
+          },
+          "favor": {
+            "href": "https://localhost/partner/api/partners/M70798065/favor"
+          },
+          "all": {
+            "href": "https://localhost/partner/api/partners/M70798065/all"
+          },
+          "partner-details": {
+            "href": "https://localhost/partner/api/partners/M70798065{?fields}",
+            "templated": true
+          }
+        }
+      },
+      {
+        "role": "MEMBER",
+        "partnerId": "20004828460",
+        "partnerNr": "100421844",
+        "vorname": "Rosange",
+        "name": "Debreuilly",
+        "kuerzel": "RD",
+        "zivilstand": "ledig",
+        "geschlecht": "weiblich",
+        "geburtsdatum": "2018-12-01",
+        "adresse": {
+          "adressArt": "Domiziladresse",
+          "hausnummer": "1",
+          "kanton": "Kanton_Nicht_Bekannt",
+          "land": "FR",
+          "ort": "Ort",
+          "plz": "1000",
+          "postfachOhneNr": false,
+          "strasse": "Strasse",
+          "strasseNrReihenfolge": "Unknown",
+          "gemeindenummer": -2147483647
+        },
+        "kontakt": {},
+        "personalversichert": false,
+        "korrespondenzsprache": "fr",
+        "age15InCurrentYear": false,
+        "age18InCurrentYear": false,
+        "wohnsitzInDerSchweiz": false,
+        "_links": {
+          "self": {
+            "href": "https://localhost/partner/api/partners/20004828460"
+          },
+          "update-basedata": {
+            "href": "https://localhost/partner/api/partners/20004828460/person"
+          },
+          "display-edit-basedata": {
+            "href": "https://localhost/partner/api/partners/20004828460/person"
+          },
+          "update-contact": {
+            "href": "https://localhost/partner/api/partners/20004828460/contact"
+          },
+          "display-edit-contact": {
+            "href": "https://localhost/partner/api/partners/20004828460/contact"
+          },
+          "favor": {
+            "href": "https://localhost/partner/api/partners/20004828460/favor"
+          },
+          "all": {
+            "href": "https://localhost/partner/api/partners/20004828460/all"
+          },
+          "partner-details": {
+            "href": "https://localhost/partner/api/partners/20004828460{?fields}",
+            "templated": true
+          }
+        }
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "https://localhost/partner/api/partners/M70762000/all"
+    }
+  },
+  "totalPartner": 4
+}

@@ -14,12 +14,23 @@ allow = true {
 allow = true {
     input.method = "GET"
     input.path = ["salary", employee_id]
-    managers[employee_id][input.user]
+
+    # manager := managers[employee_id]
+    # input.user = manager
+
+    # references
+    # managers[employee_id][input.user]
+    managers[input.user][employee_id]
 }
 
 
 # Data (normally it will loaded to OPA or pass as input like a token)
 managers = {
-    "bob": {"alice", "fred"},
-    "alice": {"fred"}
+    "bob": {
+        "alice",
+        "fred"
+    },
+    "alice": {
+        "fred"
+    }
 }
